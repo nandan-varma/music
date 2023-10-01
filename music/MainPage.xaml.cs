@@ -1,10 +1,6 @@
 ﻿using MediaManager;
-using Microsoft.Maui.Controls.PlatformConfiguration;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net;
-using System.Runtime.CompilerServices;
-using Windows.Storage;
 
 namespace music
 {
