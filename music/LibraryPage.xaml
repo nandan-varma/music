@@ -3,23 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:music.Models"
              mc:Ignorable="d"
-             x:Class="music.MainPage">
-
+             x:Class="music.LibraryPage">
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
-            <Frame Padding="20" CornerRadius="20">
-                <Label Text="Search" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="24" TextColor="White" />
-            </Frame>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Image x:Name="CurrentImage"/>
-                <Button Text="BackWord" Clicked="OnBackWardClicked" />
-                <Button Text="Play/pause" Clicked="OnPlayPauseButtonClicked" />
-                <Button Text="Forward" Clicked="OnForwardClicked" />
-            </StackLayout>
-
-            <SearchBar x:Name="SearchBar" Placeholder="Search songs..." TextChanged="OnTextChanged" />
-            <ListView x:Name="MusicListView" SeparatorVisibility="None">
+            <Label FontSize="Header" Text="Downloads"/>
+            <ListView x:Name="DownloadsListView" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -28,22 +18,17 @@
                                     <Image Source="{Binding ImageUrl}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="50" HeightRequest="50" />
                                     <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
                                         <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                                        <Label Text="{Binding DownloadUrl}" FontSize="16" FontAttributes="Bold" TextColor="White" />
                                         <Label Text="{Binding Album}" FontSize="14" FontAttributes="Italic" TextColor="LightGray" />
-                                        <Label Text="{Binding Artists}" FontSize="14" TextColor="LightGray" />
                                     </StackLayout>
                                     <BoxView HorizontalOptions="FillAndExpand" Color="Transparent"/>
-                                    <Button Text="Play" Clicked="OnPlayButtonClicked" CommandParameter="{Binding ID}" BackgroundColor="#388E3C" TextColor="White"/>
-                                    <Button Text="Download" Clicked="OnDownloadButtonClicked" CommandParameter="{Binding ID}" BackgroundColor="#1976D2" TextColor="White"/>
+                                    <Button Text="{x:Static models:Icons.Play}" Style="{x:StaticResource MaterialIcon}" Clicked="OnPlayButtonClicked" CommandParameter="{Binding ID}"/>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-
-
         </StackLayout>
     </ScrollView>
-
 </ContentPage>

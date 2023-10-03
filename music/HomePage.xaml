@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:music.Models"
+             mc:Ignorable="d"
+             x:Class="music.HomePage">
+    <ScrollView>
+        <StackLayout>
+            <Label Padding="20" FontSize="Header" Text="Trending"/>
+        <ListView x:Name="RecommendedListView" SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame BackgroundColor="#1E1E1E" Padding="10" CornerRadius="15" Margin="10">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding ImageUrl}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="50" HeightRequest="50" />
+                            <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                                <Label Text="{Binding Album}" FontSize="14" FontAttributes="Italic" TextColor="LightGray" />
+                            </StackLayout>
+                                    <BoxView HorizontalOptions="FillAndExpand" Color="Transparent"/>
+                                    <Button Text="{x:Static models:Icons.Play}" Style="{x:StaticResource MaterialIcon}" Clicked="OnPlayButtonClicked" CommandParameter="{Binding ID}"/>
+                                    <Button Text="{x:Static models:Icons.Download}" Style="{x:StaticResource MaterialIcon}" Clicked="OnDownloadButtonClicked" CommandParameter="{Binding ID}"/>
+                                </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

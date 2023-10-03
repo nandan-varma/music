@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="music.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -6,9 +5,32 @@
     xmlns:local="clr-namespace:music"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="HomePage" />
+        </Tab>
+        <Tab Title="Search">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:SearchPage}"
+                Route="SearchPage" />
+        </Tab>
 
+        <Tab Title="Library">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:LibraryPage}"
+                Route="LibraryPage" />
+        </Tab>
+        <Tab Title="Player">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:PlayerPage}"
+                Route="PlayerPage" />
+        </Tab>
+        <Tab Title="Web">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:WebPage}"
+                Route="WebPage" />
+        </Tab>
+    </TabBar>
 </Shell>
